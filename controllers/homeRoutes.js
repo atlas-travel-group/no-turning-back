@@ -2,39 +2,66 @@ const router = require("express").Router();
 const { User } = require('../models');
 const { Trip } = require('../models');
 const { Destination } = require('../models');
-const withAuth = require("../controllers/index");
+const withAuth = require("../utils/auth");
 
 //Looking at it from the lens of a user in your site, you only really want to see the trips that
 //you're involved in, therefore finding all users is not ideal. So instead you can try to Find TRIPS
 //where the user_id foreign key matches with the logged in user and then when you find the trips you INCLUDE the destinations
+router.get("/", withAuth, async (req, res) => {
+  try {
+    res.render("homepage");
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
-router.get("/", async (req, res) => {
+router.get("/users", async (req, res) => {
   try {
-    const userData = await User.findAll({
-        include: [Trip]
-      });
-      const users = userData.map((user) =>
-        user.get({ plain: true })
-      );
-    res.render("homepage", { users });
+    User.findAll().then((userData) => {
+      res.json(userData);
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-router.get("/", async (req, res) => {
+
+router.get('/users/:id', async (req, res) => {
   try {
-    const tripData = await Trip.findAll();
-    const trips = tripData.map((trip) => trip.get({ plain: true }));
-    res.render("homepage", { trips });
+    const userData = await User.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('user', {
+      ...user,
+      logged_in: req.session.logged_in
+    });
   } catch (err) {
     res.status(500).json(err);
   }
 });
-router.get("/", async (req, res) => {
+
+router.get("/destinations", async (req, res) => {
   try {
-    const destinationData = await Destination.findAll();
-    const destinations = destinationData.map((destination) => destination.get({ plain: true }));
-    res.render("homepage", { destinations });
+    Destination.findAll().then((destinationData) => {
+      res.json(destinationData);
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get("/trips", async (req, res) => {
+  try {
+    Trip.findAll().then((tripData) => {
+      res.json(tripData);
+    });
   } catch (err) {
     res.status(500).json(err);
   }
@@ -43,7 +70,7 @@ router.get("/", async (req, res) => {
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect("/profile");
+    res.redirect("/");
     return;
   }
 
