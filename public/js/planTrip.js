@@ -7,18 +7,18 @@ const newFormHandler = async (event) => {
     const endDate = document.querySelector("#end-date").value.trim();
 
   if (destination && tripBudget && startDate && endDate) {
-    const response = await fetch(`/api/tripRoutes`, {
+    const response = await fetch(`/api/trips`, {
       method: "POST",
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({ destination, tripBudget, startDate, endDate }),
       headers: {
         "Content-Type": "application/json",
       },
     });
 
     if (response.ok) {
-      document.location.replace("/profile");
+      document.location.replace("/upcoming-trips");
     } else {
-      alert("Failed to create project");
+      alert("Failed to create trip");
     }
   }
     
