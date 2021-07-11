@@ -1,0 +1,38 @@
+<div class="row">
+  <h2>Welcome {{name}}!</h2>
+</div>
+<div class="row">
+  <p>Select an action below to either view current trips, plan a trip, or view
+    past trips.</p>
+</div>
+<div class="row justify-content-around">
+  <div class="card col m-2 justify-content-center align-items-center">
+    <img
+      src="./images/plan-trip-img1.jpg"
+      alt="trip planning materials"
+      style="height:85%;width:85%;"
+      class="card-img-top m-1"
+    />
+    <a href="/plan-trips" class="btn btn-dark m-1">Plan a Trip</a>
+  </div>
+  <div class="card col m-2 justify-content-center align-items-center">
+    <img
+      src="./images/current-trip-img1.jpg"
+      alt="trip planning materials"
+      style="height:85%;width:85%;"
+      class="card-img-top m-1"
+    />
+    <a href="/upcoming-trips" class="btn btn-dark m-1">Upcoming Trips</a>
+  </div>
+  <div class="card col m-2 justify-content-center align-items-center">
+    <img
+      src="./images/past-trip-img1.jpg"
+      alt="trip planning materials"
+      style="height:85%;width:85%;"
+      class="card-img-top m-1"
+    />
+    <a href="./past-trips" class="btn btn-dark m-1">Past Trips</a>
+  </div>
+</div>
+
+<script src="/js/profile.js"></script>

@@ -3,8 +3,8 @@ const newFormHandler = async (event) => {
 
   const destination = document.querySelector("#destination").value.trim();
   const tripBudget = document.querySelector("#trip-budget").value.trim();
-    const startDate = document.querySelector("#start-date").value.trim();
-    const endDate = document.querySelector("#end-date").value.trim();
+  const startDate = document.querySelector("#start-date").value.trim();
+  const endDate = document.querySelector("#end-date").value.trim();
 
   if (destination && tripBudget && startDate && endDate) {
     const response = await fetch(`/api/trips`, {
@@ -21,7 +21,6 @@ const newFormHandler = async (event) => {
       alert("Failed to create trip");
     }
   }
-    
 };
 
 document
