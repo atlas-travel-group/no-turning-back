@@ -1,23 +1,39 @@
-    <form class="form new-trip-form">
-      <div class="form-group">
-        <label for="destination">trip name:</label>
-        <input class="form-input" type="text" id="destination" name="destination" />
-      </div>
-      <div class="form-group">
-        <label for="trip-budget">trip budget: ($):</label>
-        <input class="form-input" type="number" id="trip-budget" name="trip-budget" />
-      </div>
-      <div class="form-group">
-        <label for="start-date">start date:</label>
-        <textarea class="form-input" id="start-date" name="start-date"></textarea>
-      </div>
-           <div class="form-group">
-        <label for="end-date">end date:</label>
-        <textarea class="form-input" id="end-date" name="end-date"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create Trip</button>
-      </div>
-    </form>
-
-    <script src="/js/planTrip.js"></script>
+<div class="card p-4 bg-light">
+  <form class="form new-trip-form">
+    <div class="form-group">
+      <label for="destination">trip name:</label>
+      <input
+        class="form-input"
+        type="text"
+        id="destination"
+        name="destination"
+      />
+    </div>
+    <div class="form-group">
+      <label for="trip-budget">trip budget ($):</label>
+      <input
+        class="form-input"
+        type="number"
+        id="trip-budget"
+        name="trip-budget"
+      />
+    </div>
+    <div class="form-group">
+      <label for="start-date">start date:</label>
+      <input
+        class="form-input"
+        id="start-date"
+        name="start-date"
+        type="date"
+      ></input>
+    </div>
+    <div class="form-group">
+      <label for="end-date">end date:</label>
+      <input class="form-input" id="end-date" name="end-date" type="date"></input>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-dark my-2">Create Trip</button>
+    </div>
+  </form>
+</div>
+<script src="/js/planTrip.js"></script>

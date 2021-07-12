@@ -1,1 +1,10 @@
-<h1>hello world</h1>
+<div class="row">
+  <h2>Hello {{name}}, here are your past trips!</h2>
+</div>
+<div class="row">
+  {{#each destinations as |destination|}}
+    <p>{{destination.name}}</p>
+  {{/each}}
+</div>
+
+{{! <script src="/js/pastTrip.js"></script> }}
