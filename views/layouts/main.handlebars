@@ -6,6 +6,12 @@
     <title>Atlas Travel!</title>
     <link rel="stylesheet" href="/css/jass.css" />
     <link rel="stylesheet" href="/css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap"
+      rel="stylesheet"
+    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css"
@@ -14,19 +20,33 @@
 
   <body>
     <div class="flex-column justify-space-around">
-      <header class="display-flex justify-space-between align-center p-2">
+      <header
+        class="display-flex justify-space-between align-center p-2 sticky-top"
+        style="background-color:#afd3c2;"
+      >
         <h1>
           <span role="img" aria-label="travel">💸</span>
-          <a href="/">Atlas Travel!</a>
+          <a
+            href="/"
+            style="text-decoration:none;color:black;font-family:'Otomanopee One', sans-serif"
+          >Atlas Travel!</a>
         </h1>
         <nav>
           <!-- Conditionally render login or logout links -->
           {{#if logged_in}}
-            <a href="/plan-trips">Plan a Trip</a>
+            <a href="/plan-trips" style="text-decoration:none;color:black;">Plan
+              a Trip</a>
             |
-            <button class="no-button" id="logout">logout</button>
+            <button
+              class="no-button"
+              id="logout"
+              style="text-decoration:none;color:black;margin-right:6px;"
+            >Logout</button>
           {{else}}
-            <a href="/login">login</a>
+            <a
+              href="/login"
+              style="text-decoration:none;color:black;margin-right:6px;"
+            >Login</a>
           {{/if}}
         </nav>
       </header>
