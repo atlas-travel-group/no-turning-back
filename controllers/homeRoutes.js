@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const { User } = require("../models");
 const { Trip } = require("../models");
-const { Destination } = require("../models");
+// const { Destination } = require("../models");
 const withAuth = require("../utils/auth");
 
 //Looking at it from the lens of a user in your site, you only really want to see the trips that
@@ -11,7 +11,6 @@ router.get("/", withAuth, async (req, res) => {
   try {
     const tripData = await Trip.findAll({
       where: { user_id: 1 },
-      include: [Destination],
     });
     const trips = tripData.map((trip) => trip.get({ plain: true }));
 
@@ -58,15 +57,15 @@ router.get("/users/:id", async (req, res) => {
   }
 });
 
-router.get("/destinations", async (req, res) => {
-  try {
-    Destination.findAll().then((destinationData) => {
-      res.json(destinationData);
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+// router.get("/destinations", async (req, res) => {
+//   try {
+//     Destination.findAll().then((destinationData) => {
+//       res.json(destinationData);
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 router.get("/trips", async (req, res) => {
   try {

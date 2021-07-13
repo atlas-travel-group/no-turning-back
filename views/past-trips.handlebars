@@ -1,10 +1,19 @@
 <div class="row">
   <h2>Hello {{name}}, here are your past trips!</h2>
 </div>
-<div class="row">
-  {{#each destinations as |destination|}}
-    <p>{{destination.name}}</p>
-  {{/each}}
-</div>
+{{#each trips as |trip|}}
+  {{#if (isPast trip_date_start)}}
+    <div class="row justify-content-around">
+      <div class="card bg-light col p-2 m-2 justify-content-center">
+        <h3 id="destination">{{trip.trip_location}}</h3>
+        <p>Dates:
+          {{format_date trip.trip_date_start}}
+          -
+          {{format_date trip.trip_date_end}}</p>
+        <p>Budget: ${{format_amount trip.trip_budget}}</p>
+      </div>
+    </div>
+  {{/if}}
+{{/each}}
 
 {{! <script src="/js/pastTrip.js"></script> }}
