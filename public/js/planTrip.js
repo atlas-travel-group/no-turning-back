@@ -1,15 +1,20 @@
 const newFormHandler = async (event) => {
   event.preventDefault();
 
-  const destination = document.querySelector("#destination").value.trim();
-  const tripBudget = document.querySelector("#trip-budget").value.trim();
-  const startDate = document.querySelector("#start-date").value.trim();
-  const endDate = document.querySelector("#end-date").value.trim();
+  const trip_location = document.querySelector("#destination").value.trim();
+  const trip_budget = document.querySelector("#trip-budget").value.trim();
+  const trip_date_start = document.querySelector("#start-date").value.trim();
+  const trip_date_end = document.querySelector("#end-date").value.trim();
 
-  if (destination && tripBudget && startDate && endDate) {
+  if (trip_location && trip_budget && trip_date_start && trip_date_end) {
     const response = await fetch(`/api/trips`, {
       method: "POST",
-      body: JSON.stringify({ destination, tripBudget, startDate, endDate }),
+      body: JSON.stringify({
+        trip_location,
+        trip_budget,
+        trip_date_start,
+        trip_date_end,
+      }),
       headers: {
         "Content-Type": "application/json",
       },

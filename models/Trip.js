@@ -11,6 +11,10 @@ Trip.init(
       primaryKey: true,
       autoIncrement: true,
     },
+    trip_location: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     trip_budget: {
       type: DataTypes.DECIMAL(10, 2),
       allowNull: true,
@@ -29,13 +33,6 @@ Trip.init(
       type: DataTypes.INTEGER,
       references: {
         model: "user",
-        key: "id",
-      },
-    },
-    destination_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: "destination",
         key: "id",
       },
     },
