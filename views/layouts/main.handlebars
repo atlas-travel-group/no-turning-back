@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Otomanopee+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Maven+Pro:wght@500;600;700;900&display=swap"
       rel="stylesheet"
     />
     <link
@@ -27,31 +27,33 @@
       <div class="header-banner"></div>
       <header
         class="display-flex justify-space-between align-center p-2 sticky-top"
-        style="background-color:#afd3c2;"
+        style="background-color:#bce1ff;"
       >
 
         <h1>
-          <span role="img" aria-label="travel">💸</span>
+          <span role="img" aria-label="travel">🛩️</span>
           <a
             href="/"
-            style="text-decoration:none;color:black;font-family:'Otomanopee One', sans-serif"
+            style="text-decoration:none;color:rgb(5, 52, 114);font-family:'Maven Pro'; font-weight:700;, sans-serif"
           >Atlas Travel!</a>
         </h1>
         <nav>
           <!-- Conditionally render login or logout links -->
           {{#if logged_in}}
-            <a href="/plan-trips" style="text-decoration:none;color:black;">Plan
-              a Trip</a>
+            <a
+              href="/plan-trips"
+              style="text-decoration:none;color:rgb(5, 52, 114); font-family:'Maven Pro'; font-weight:600;, sans-serif"
+            >Plan a Trip</a>
             |
             <button
               class="no-button"
               id="logout"
-              style="text-decoration:none;color:black;margin-right:6px;"
+              style="text-decoration:none;color:rgb(5, 52, 114);margin-right:6px; font-family:'Maven Pro'; font-weight:600;, sans-serif"
             >Logout</button>
           {{else}}
             <a
               href="/login"
-              style="text-decoration:none;color:black;margin-right:6px;"
+              style="text-decoration:none;color:rgb(5, 52, 114);margin-right:6px; font-family:'Maven Pro'; font-weight:600;, sans-serif;margin-right:6px;"
             >Login</a>
           {{/if}}
         </nav>
