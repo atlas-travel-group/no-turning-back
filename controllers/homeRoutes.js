@@ -67,7 +67,8 @@ router.get("/trips", async (req, res) => {
 });
 
 router.get("/plan-trips", async (req, res) => {
-  res.render("plan-trips");
+  // call unsplash or amadeus
+  res.render("plan-trips"); // pass in unsplash data
 });
 
 router.get("/upcoming-trips", withAuth, async (req, res) => {
@@ -82,6 +83,8 @@ router.get("/upcoming-trips", withAuth, async (req, res) => {
     res.render("upcoming-trips", {
       ...user,
       logged_in: true,
+
+      // pass in unsplash data
     });
   } catch (err) {
     res.status(500).json(err);
