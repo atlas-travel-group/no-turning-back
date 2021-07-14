@@ -22,4 +22,7 @@ module.exports = {
       return true;
     }
   },
+  logName: (location) => {
+    console.log(location);
+  },
 };
