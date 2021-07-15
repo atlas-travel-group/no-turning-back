@@ -7,7 +7,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/upcomingTrips");
+      document.location.replace("/upcoming-trips");
     } else {
       alert("Failed to delete project");
     }
