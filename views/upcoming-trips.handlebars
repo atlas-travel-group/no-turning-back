@@ -3,7 +3,7 @@
 </div>
 {{#each trips as |trip|}}
   {{#if (isUpcoming trip_date_start)}}
-    <div class="row justify-content-around">
+    <div class="row justify-content-around project-list">
       <div class="card bg-light col p-2 m-2 justify-content-center">
         <div class="row g-0">
           <div class="col-md-4" id={{trip.trip_location}}></div>
@@ -17,6 +17,12 @@
               <p class="card-text">Budget: ${{format_amount
                   trip.trip_budget
                 }}</p>
+              <div class="col-md-4">
+                <button
+                  class="btn btn-sm btn-danger"
+                  data-id="{{trip.id}}"
+                >DELETE</button>
+              </div>
             </div>
           </div>
         </div>
@@ -26,3 +32,4 @@
 {{/each}}
 
 <script src="js/fetchImages.js"></script>
+<script src="./js/upcomingTrips.js"></script>
