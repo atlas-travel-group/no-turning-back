@@ -11,18 +11,17 @@ module.exports = {
     return parseInt(amount).toLocaleString();
   },
   isUpcoming: (date) => {
+    // check if date is after today's date
     let today = moment();
     if (date >= today) {
       return true;
     }
   },
   isPast: (date) => {
+    // check if date is before today's date
     let today = moment();
     if (date < today) {
       return true;
     }
-  },
-  logName: (location) => {
-    console.log(location);
   },
 };

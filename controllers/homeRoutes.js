@@ -3,9 +3,6 @@ const { User } = require("../models");
 const { Trip } = require("../models");
 const withAuth = require("../utils/auth");
 
-//Looking at it from the lens of a user in your site, you only really want to see the trips that
-//you're involved in, therefore finding all users is not ideal. So instead you can try to Find TRIPS
-//where the user_id foreign key matches with the logged in user and then when you find the trips you INCLUDE the destinations
 router.get("/", withAuth, async (req, res) => {
   try {
     const tripData = await Trip.findAll({
@@ -67,8 +64,7 @@ router.get("/trips", async (req, res) => {
 });
 
 router.get("/plan-trips", async (req, res) => {
-  // call unsplash or amadeus
-  res.render("plan-trips"); // pass in unsplash data
+  res.render("plan-trips");
 });
 
 router.get("/upcoming-trips", withAuth, async (req, res) => {
@@ -83,8 +79,6 @@ router.get("/upcoming-trips", withAuth, async (req, res) => {
     res.render("upcoming-trips", {
       ...user,
       logged_in: true,
-
-      // pass in unsplash data
     });
   } catch (err) {
     res.status(500).json(err);

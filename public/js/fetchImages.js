@@ -1,4 +1,4 @@
-// call unsplash or amadeus api
+// call unsplash api
 const tripLocations = document.querySelectorAll(".destination");
 
 function getPhoto() {
@@ -15,6 +15,7 @@ function getPhoto() {
     )
       .then((response) => response.json())
       .then((data) => {
+        // default photo if search comes back null
         if (typeof data.results[0] === "undefined") {
           const photoContainer = document.getElementById(specificLocation);
           const newPhoto = document.createElement("img");

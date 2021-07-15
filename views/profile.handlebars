@@ -1,3 +1,4 @@
+{{! body for profile webpage }}
 <div class="row">
   <h2>Welcome {{name}}!</h2>
 </div>
@@ -6,6 +7,7 @@
     past trips.</p>
 </div>
 <div class="row justify-content-around">
+  {{! card for planning a trip }}
   <div
     class="card bg-light col p-2 m-2 justify-content-center align-items-center"
   >
@@ -17,6 +19,7 @@
     />
     <a href="/plan-trips" class="btn btn-dark m-1">Plan a Trip</a>
   </div>
+  {{! card for upcoming trips }}
   <div
     class="card bg-light col p-2 m-2 justify-content-center align-items-center"
   >
@@ -28,6 +31,7 @@
     />
     <a href="/upcoming-trips" class="btn btn-dark m-1">Upcoming Trips</a>
   </div>
+  {{! card for past trips }}
   <div
     class="card bg-light col p-2 m-2 justify-content-center align-items-center"
   >
