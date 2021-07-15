@@ -16,6 +16,14 @@ function getPhoto() {
       .then((response) => response.json())
       .then((data) => {
         if (typeof data.results[0] === "undefined") {
+          const photoContainer = document.getElementById(specificLocation);
+          const newPhoto = document.createElement("img");
+          newPhoto.setAttribute(
+            "src",
+            "https://images.unsplash.com/photo-1437846972679-9e6e537be46e?crop=entropy&cs=srgb&fm=jpg&ixid=MnwyNDYyODl8MHwxfHNlYXJjaHwyOHx8dHJhdmVsfGVufDB8fHx8MTYyNjI5ODE4Nw&ixlib=rb-1.2.1&q=85"
+          );
+          newPhoto.setAttribute("class", "destination-photo");
+          photoContainer.append(newPhoto);
         } else {
           const photoContainer = document.getElementById(specificLocation);
           const newPhoto = document.createElement("img");
