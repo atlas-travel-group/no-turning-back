@@ -1,3 +1,8 @@
+body {
+  font-family: "Maven Pro";
+  font-weight: 600;
+}
+
 header,
 .project:not(:last-child) {
   border-bottom: 1px solid rgb(134, 210, 253);
