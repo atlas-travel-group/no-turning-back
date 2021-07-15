@@ -1,7 +1,10 @@
+{{! body for past trips webpage }}
 <div class="row">
   <h2>Hello {{name}}, here are your past trips!</h2>
 </div>
+{{! loop through each trip for the current user }}
 {{#each trips as |trip|}}
+  {{! continue if the trip date has passed }}
   {{#if (isPast trip_date_start)}}
     <div class="row justify-content-around">
       <div class="card bg-light col p-2 m-2 justify-content-center">
@@ -25,4 +28,5 @@
   {{/if}}
 {{/each}}
 
+{{! call on needed javascript files }}
 <script src="js/fetchImages.js"></script>
